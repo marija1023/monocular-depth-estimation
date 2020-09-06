@@ -5,9 +5,11 @@ import skimage.transform
 import numpy as np
 import PIL.Image as pil
 
-from kitti_utils import generate_depth_map
 from mono_dataset import MonoDataset
 
+import sys
+import utils
+from kitti_utils import generate_depth_map
 
 class KITTIDataset(MonoDataset):
     """Superclass for different types of KITTI dataset loaders
@@ -31,7 +33,7 @@ class KITTIDataset(MonoDataset):
         # frame_index = int(line[1])
 
         # POTENCIJALNO MOZE DA IZAZOVE KVAR
-        filenames = readlines(os.path.join(splits_dir, "test_files.txt"))
+        filenames = utils.readlines(os.path.join(splits_dir, "test_files.txt"))[0]
         scene_name = filenames[filenames.rfind('2011') : filenames.rfind('image_02')-1]
         frame_index = scene_name[filenames.rfind('/')+1 : filenames.rfind('\.')-3]
 
