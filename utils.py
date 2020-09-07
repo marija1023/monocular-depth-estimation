@@ -11,6 +11,8 @@ def readlines(filename):
         lines = f.read().splitlines()
     return lines
 
+def get_frames(filenames):
+  return list(map(lambda f: f[f.rfind('/')+1 : f.rfind('\.')-3], filenames))
 
 def normalize_image(x):
     """Rescale image pixels to span range [0, 1]

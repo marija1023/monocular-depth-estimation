@@ -13,16 +13,17 @@ from utils import *
 from kitti_utils import *
 from layers import *
 
-import datasets
-import networks
+from kitti_dataset import *
+import mono_dataset
+from resnet_encoder import *
+from depth_decoder import *
+from pose_cnn import *
 from IPython import embed
 
-
 class Trainer:
-    def __init__(self, options):
+    def __init__(self):
         
         self.model_name = 'model'
-        # self.log_dir = os.path.join(os.path.expanduser("~"), "tmp")
         self.log_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/models'
         
         self.log_path = os.path.join(self.log_dir, self.model_name)
@@ -43,15 +44,15 @@ class Trainer:
         
         self.num_pose_frames = 2
         
-        self.models["encoder"] = networks.ResnetEncoder(self.num_layers, pretrained=True)
+        self.models["encoder"] = ResnetEncoder(18, pretrained=True)
         self.models["encoder"].to(self.device)
         self.parameters_to_train += list(self.models["encoder"].parameters())
 
-        self.models["depth"] = networks.DepthDecoder(self.models["encoder"].num_ch_enc, self.scales)
+        self.models["depth"] = DepthDecoder(self.models["encoder"].num_ch_enc, self.scales)
         self.models["depth"].to(self.device)
         self.parameters_to_train += list(self.models["depth"].parameters())
       
-        self.models["pose"] = networks.PoseCNN(2)
+        self.models["pose"] = PoseCNN(2)
         self.models["pose"].to(self.device)
         self.parameters_to_train += list(self.models["pose"].parameters())
 
@@ -66,8 +67,8 @@ class Trainer:
         print("Training is using:\n  ", self.device)
 
         # TODO data???
-        datasets_dict = {"kitti": datasets.KITTIRAWDataset,
-                         "kitti_odom": datasets.KITTIOdomDataset}
+        datasets_dict = {"kitti": KITTIRAWDataset,
+                         "kitti_odom": KITTIOdomDataset}
         self.dataset = datasets_dict["kitti"]
 
         splits_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
@@ -78,11 +79,14 @@ class Trainer:
         val_filenames = readlines(fpath.format("val"))
         img_ext = ".png"
 
+        train_frames = get_frames(train_filenames)
+        val_frames = get_frames(val_filenames)
+
         num_train_samples = len(train_filenames)
 
         #TODO adjust?
-        self.batch_size = 12
-        self.num_epochs = 20
+        self.batch_size = 8
+        self.num_epochs = 15
         
         self.min_depth = 0.1
         self.max_depth = 100
@@ -94,17 +98,17 @@ class Trainer:
         self.data_path = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos'
 
         train_dataset = self.dataset(
-            train_filenames, self.height, self.width,
-            self.frame_ids, 4, is_train=True, img_ext=img_ext)
+            self.data_path, train_filenames, self.height, self.width,
+            train_frames, 4, is_train=True, img_ext=img_ext)
         
-        self.num_workers = 12 
+        self.num_workers = 0
         self.train_loader = DataLoader(
             train_dataset, self.batch_size, True,
             num_workers=self.num_workers, pin_memory=True, drop_last=True)
         
         val_dataset = self.dataset(
-            val_filenames, self.height, self.width,
-            self.frame_ids, 4, is_train=False, img_ext=img_ext)
+            self.data_path, val_filenames, self.height, self.width,
+            val_frames, 4, is_train=False, img_ext=img_ext)
         self.val_loader = DataLoader(
             val_dataset, self.batch_size, True,
             num_workers=self.num_workers, pin_memory=True, drop_last=True)
@@ -201,7 +205,7 @@ class Trainer:
             inputs[key] = ipt.to(self.device)
 
         # we only feed the image with frame_id 0 through the depth encoder
-        features = self.models["encoder"](inputs["color_aug", 0, 0])
+        features = self.models["encoder"](inputs["color_aug", 0, -1])
         outputs = self.models["depth"](features)
 
         outputs.update(self.predict_poses(inputs, features))
@@ -456,17 +460,6 @@ class Trainer:
                     "automask_{}/{}".format(s, j),
                     outputs["identity_selection/{}".format(s)][j][None, ...], self.step)
 
-#     def save_opts(self):
-#         """Save options to disk so we know what we ran this experiment with
-#         """
-#         models_dir = os.path.join(self.log_path, "models")
-#         if not os.path.exists(models_dir):
-#             os.makedirs(models_dir)
-#         to_save = self.opt.__dict__.copy()
-
-#         with open(os.path.join(models_dir, 'opt.json'), 'w') as f:
-#             json.dump(to_save, f, indent=2)
-
     def save_model(self):
         """Save model weights to disk
         """
@@ -485,30 +478,3 @@ class Trainer:
 
         save_path = os.path.join(save_folder, "{}.pth".format("adam"))
         torch.save(self.model_optimizer.state_dict(), save_path)
-
-#     def load_model(self):
-#         """Load model(s) from disk
-#         """
-#         self.opt.load_weights_folder = os.path.expanduser(self.opt.load_weights_folder)
-
-#         assert os.path.isdir(self.opt.load_weights_folder), \
-#             "Cannot find folder {}".format(self.opt.load_weights_folder)
-#         print("loading model from folder {}".format(self.opt.load_weights_folder))
-
-#         for n in self.opt.models_to_load:
-#             print("Loading {} weights...".format(n))
-#             path = os.path.join(self.opt.load_weights_folder, "{}.pth".format(n))
-#             model_dict = self.models[n].state_dict()
-#             pretrained_dict = torch.load(path)
-#             pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
-#             model_dict.update(pretrained_dict)
-#             self.models[n].load_state_dict(model_dict)
-
-#         # loading adam state
-#         optimizer_load_path = os.path.join(self.opt.load_weights_folder, "adam.pth")
-#         if os.path.isfile(optimizer_load_path):
-#             print("Loading Adam weights")
-#             optimizer_dict = torch.load(optimizer_load_path)
-#             self.model_optimizer.load_state_dict(optimizer_dict)
-#         else:
-#             print("Cannot find Adam weights so Adam is randomly initialized")

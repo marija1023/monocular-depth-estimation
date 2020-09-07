@@ -33,26 +33,28 @@ class KITTIDataset(MonoDataset):
         # frame_index = int(line[1])
 
         # POTENCIJALNO MOZE DA IZAZOVE KVAR
+        splits_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
         filenames = utils.readlines(os.path.join(splits_dir, "test_files.txt"))[0]
         scene_name = filenames[filenames.rfind('2011') : filenames.rfind('image_02')-1]
-        frame_index = scene_name[filenames.rfind('/')+1 : filenames.rfind('\.')-3]
+        frame_index = filenames[filenames.rfind('/')+1 : filenames.rfind('\.')-3]
 
-        # data_paht = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos'
+        # data_path = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos'
         # scene_name = '2011_09_26_drive_0005_sync'
         velo_filename = os.path.join(
             self.data_path,
             scene_name,
-            "velodyne_points/data/{:010d}.bin".format(int(frame_index)))
+            "velodyne_points/data/{}.bin".format(int(frame_index)))
 
         return os.path.isfile(velo_filename)
 
     def get_color(self, folder, frame_index, do_flip):
-        color = self.loader(self.get_image_path(folder, frame_index))
+      # print(folder, frame_index)
+      color = self.loader(self.get_image_path(folder, frame_index))
 
-        if do_flip:
-            color = color.transpose(pil.FLIP_LEFT_RIGHT)
+      if do_flip:
+          color = color.transpose(pil.FLIP_LEFT_RIGHT)
 
-        return color
+      return color
 
 
 class KITTIRAWDataset(KITTIDataset):

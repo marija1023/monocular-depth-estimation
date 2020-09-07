@@ -1,99 +1,63 @@
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000101.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000103.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000104.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000105.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000106.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000107.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000108.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000109.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000110.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000112.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000111.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000113.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000114.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000115.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000117.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000116.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000119.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000118.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000120.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000121.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000122.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000123.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000124.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000125.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000126.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000127.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000128.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000129.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000131.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000130.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000132.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000134.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000133.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000135.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000136.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000137.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000138.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000139.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000140.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000141.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000142.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000143.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000144.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000145.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000147.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000146.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000148.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000149.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000150.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000151.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000153.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0005_sync/image_02/data/0000000152.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000208.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000210.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000212.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000211.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000213.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000215.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000214.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000216.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000218.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000217.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000219.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000220.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000221.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000222.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000224.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000223.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000225.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000226.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000227.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000228.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000229.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000230.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000231.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000233.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000232.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000234.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000235.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000236.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000237.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000238.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000240.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000239.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000241.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000243.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000242.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000244.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000245.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000246.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000247.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000249.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000248.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000251.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000250.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000252.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000254.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000253.png
-/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos/2011_09_26_drive_0014_sync/image_02/data/0000000255.png
+2011_09_26_drive_0014_sync/image_02/data/0000000250.png
+2011_09_26_drive_0014_sync/image_02/data/0000000252.png
+2011_09_26_drive_0014_sync/image_02/data/0000000254.png
+2011_09_26_drive_0014_sync/image_02/data/0000000253.png
+2011_09_26_drive_0014_sync/image_02/data/0000000255.png
+2011_09_26_drive_0014_sync/image_02/data/0000000256.png
+2011_09_26_drive_0014_sync/image_02/data/0000000257.png
+2011_09_26_drive_0014_sync/image_02/data/0000000258.png
+2011_09_26_drive_0014_sync/image_02/data/0000000259.png
+2011_09_26_drive_0014_sync/image_02/data/0000000260.png
+2011_09_26_drive_0014_sync/image_02/data/0000000261.png
+2011_09_26_drive_0014_sync/image_02/data/0000000262.png
+2011_09_26_drive_0014_sync/image_02/data/0000000263.png
+2011_09_26_drive_0014_sync/image_02/data/0000000264.png
+2011_09_26_drive_0014_sync/image_02/data/0000000265.png
+2011_09_26_drive_0014_sync/image_02/data/0000000268.png
+2011_09_26_drive_0014_sync/image_02/data/0000000267.png
+2011_09_26_drive_0014_sync/image_02/data/0000000266.png
+2011_09_26_drive_0014_sync/image_02/data/0000000269.png
+2011_09_26_drive_0014_sync/image_02/data/0000000270.png
+2011_09_26_drive_0014_sync/image_02/data/0000000271.png
+2011_09_26_drive_0014_sync/image_02/data/0000000272.png
+2011_09_26_drive_0014_sync/image_02/data/0000000274.png
+2011_09_26_drive_0014_sync/image_02/data/0000000273.png
+2011_09_26_drive_0014_sync/image_02/data/0000000275.png
+2011_09_26_drive_0014_sync/image_02/data/0000000276.png
+2011_09_26_drive_0014_sync/image_02/data/0000000278.png
+2011_09_26_drive_0014_sync/image_02/data/0000000277.png
+2011_09_26_drive_0014_sync/image_02/data/0000000281.png
+2011_09_26_drive_0014_sync/image_02/data/0000000280.png
+2011_09_26_drive_0014_sync/image_02/data/0000000279.png
+2011_09_26_drive_0014_sync/image_02/data/0000000283.png
+2011_09_26_drive_0014_sync/image_02/data/0000000282.png
+2011_09_26_drive_0014_sync/image_02/data/0000000284.png
+2011_09_26_drive_0014_sync/image_02/data/0000000285.png
+2011_09_26_drive_0014_sync/image_02/data/0000000287.png
+2011_09_26_drive_0014_sync/image_02/data/0000000286.png
+2011_09_26_drive_0014_sync/image_02/data/0000000288.png
+2011_09_26_drive_0014_sync/image_02/data/0000000292.png
+2011_09_26_drive_0014_sync/image_02/data/0000000289.png
+2011_09_26_drive_0014_sync/image_02/data/0000000291.png
+2011_09_26_drive_0014_sync/image_02/data/0000000290.png
+2011_09_26_drive_0014_sync/image_02/data/0000000296.png
+2011_09_26_drive_0014_sync/image_02/data/0000000293.png
+2011_09_26_drive_0014_sync/image_02/data/0000000294.png
+2011_09_26_drive_0014_sync/image_02/data/0000000295.png
+2011_09_26_drive_0014_sync/image_02/data/0000000297.png
+2011_09_26_drive_0014_sync/image_02/data/0000000298.png
+2011_09_26_drive_0014_sync/image_02/data/0000000299.png
+2011_09_26_drive_0014_sync/image_02/data/0000000302.png
+2011_09_26_drive_0014_sync/image_02/data/0000000300.png
+2011_09_26_drive_0014_sync/image_02/data/0000000301.png
+2011_09_26_drive_0014_sync/image_02/data/0000000305.png
+2011_09_26_drive_0014_sync/image_02/data/0000000303.png
+2011_09_26_drive_0014_sync/image_02/data/0000000306.png
+2011_09_26_drive_0014_sync/image_02/data/0000000304.png
+2011_09_26_drive_0014_sync/image_02/data/0000000307.png
+2011_09_26_drive_0014_sync/image_02/data/0000000308.png
+2011_09_26_drive_0014_sync/image_02/data/0000000310.png
+2011_09_26_drive_0014_sync/image_02/data/0000000311.png
+2011_09_26_drive_0014_sync/image_02/data/0000000309.png
+2011_09_26_drive_0014_sync/image_02/data/0000000312.png
+2011_09_26_drive_0014_sync/image_02/data/0000000313.png
