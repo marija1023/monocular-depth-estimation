@@ -32,13 +32,13 @@ class Trainer:
         self.models = {}
         self.parameters_to_train = []
 
-        self.device = torch.device("cpu" if self.opt.no_cuda else "cuda")
+        self.device = torch.device("cuda")
 
         self.scales = range(4)
         self.num_scales = 4
         
         self.frame_ids = [0, -1, 1]
-        self.num_input_frames = len(self.opt.frame_ids)
+        self.num_input_frames = len(self.frame_ids)
         
         self.num_pose_frames = 2
         
@@ -80,6 +80,7 @@ class Trainer:
         
         self.min_depth = 0.1
         self.max_depth = 100
+        self.disparity_smoothness = 1e-3
         
         self.num_total_steps = num_train_samples // self.batch_size * self.num_epochs
 
@@ -214,7 +215,7 @@ class Trainer:
 
             pose_feats = {f_i: inputs["color_aug", f_i, 0] for f_i in self.frame_ids}
 
-            for f_i in self.opt.frame_ids[1:]:
+            for f_i in self.frame_ids[1:]:
                 if f_i != "s":
                     # To maintain ordering we always pass frames in temporal order
                     if f_i < 0:
@@ -263,14 +264,14 @@ class Trainer:
         for scale in self.scales:
             disp = outputs[("disp", scale)]
             disp = F.interpolate(
-                disp, [self.opt.height, self.opt.width], mode="bilinear", align_corners=False)
+                disp, [self.height, self.width], mode="bilinear", align_corners=False)
             source_scale = 0
 
             _, depth = disp_to_depth(disp, self.min_depth, self.max_depth)
 
             outputs[("depth", 0, scale)] = depth
 
-            for i, frame_id in enumerate(self.opt.frame_ids[1:]):
+            for i, frame_id in enumerate(self.frame_ids[1:]):
 
                 T = outputs[("cam_T_cam", 0, frame_id)]
 
@@ -374,7 +375,7 @@ class Trainer:
             norm_disp = disp / (mean_disp + 1e-7)
             smooth_loss = get_smooth_loss(norm_disp, color)
 
-            loss += self.opt.disparity_smoothness * smooth_loss / (2 ** scale)
+            loss += self.disparity_smoothness * smooth_loss / (2 ** scale)
             total_loss += loss
             losses["loss/{}".format(scale)] = loss
 
