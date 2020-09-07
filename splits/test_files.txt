@@ -60,4 +60,3 @@
 2011_09_26_drive_0014_sync/image_02/data/0000000311.png
 2011_09_26_drive_0014_sync/image_02/data/0000000309.png
 2011_09_26_drive_0014_sync/image_02/data/0000000312.png
-2011_09_26_drive_0014_sync/image_02/data/0000000313.png
