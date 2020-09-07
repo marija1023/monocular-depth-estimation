@@ -64,10 +64,7 @@ class Trainer:
         print("Models and tensorboard events files are saved to:\n  ", self.log_dir)
         print("Training is using:\n  ", self.device)
 
-        # TODO data???
-        datasets_dict = {"kitti": datasets.KITTIRAWDataset,
-                         "kitti_odom": datasets.KITTIOdomDataset}
-        self.dataset = datasets_dict[self.opt.dataset]
+        self.dataset = datasets.KITTIRAWDataset
 
         fpath = os.path.join(os.path.dirname(__file__), "splits", "{}_files.txt")
 
