@@ -85,7 +85,7 @@ class Trainer:
         num_train_samples = len(train_filenames)
 
         #TODO adjust?
-        self.batch_size = 8
+        self.batch_size = 2
         self.num_epochs = 15
         
         self.min_depth = 0.1
@@ -160,7 +160,9 @@ class Trainer:
         self.step = 0
         self.start_time = time.time()
         for self.epoch in range(self.num_epochs):
+            print("EPOHA")
             self.run_epoch()
+            print("SAVE MODEL")
             self.save_model()
 
     def run_epoch(self):
@@ -468,6 +470,7 @@ class Trainer:
             os.makedirs(save_folder)
 
         for model_name, model in self.models.items():
+            print("MODEL NAME = {}".format(model_name))
             save_path = os.path.join(save_folder, "{}.pth".format(model_name))
             to_save = model.state_dict()
             if model_name == 'encoder':
