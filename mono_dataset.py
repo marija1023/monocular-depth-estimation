@@ -130,10 +130,12 @@ class MonoDataset(data.Dataset):
 
         line = self.filenames[index].split()
         folder = line[0]
+        frame_index = folder[folder.rfind('/')+1 : folder.rfind('\.')-3]
         folder = folder[:folder.find('/')]
 
         for i in self.frame_idxs:
-            inputs[("color", i, -1)] = self.get_color(folder, int(i), do_flip)
+            if int(frame_index) + int(i) >= 314 or int(frame_index) + int(i) < 0: continue
+            inputs[("color", i, -1)] = self.get_color(folder, int(frame_index) + int(i), do_flip)
 
         # adjusting intrinsics to match each scale in the pyramid
         for scale in range(self.num_scales):

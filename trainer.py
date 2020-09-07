@@ -99,7 +99,7 @@ class Trainer:
 
         train_dataset = self.dataset(
             self.data_path, train_filenames, self.height, self.width,
-            train_frames, 4, is_train=True, img_ext=img_ext)
+            self.frame_ids, 4, is_train=True, img_ext=img_ext)
         
         self.num_workers = 0
         self.train_loader = DataLoader(
@@ -108,7 +108,7 @@ class Trainer:
         
         val_dataset = self.dataset(
             self.data_path, val_filenames, self.height, self.width,
-            val_frames, 4, is_train=False, img_ext=img_ext)
+            self.frame_ids, 4, is_train=False, img_ext=img_ext)
         self.val_loader = DataLoader(
             val_dataset, self.batch_size, True,
             num_workers=self.num_workers, pin_memory=True, drop_last=True)
@@ -207,7 +207,7 @@ class Trainer:
             inputs[key] = ipt.to(self.device)
 
         # we only feed the image with frame_id 0 through the depth encoder
-        features = self.models["encoder"](inputs["color_aug", 0, -1])
+        features = self.models["encoder"](inputs["color_aug", 0, 0])
         outputs = self.models["depth"](features)
 
         outputs.update(self.predict_poses(inputs, features))
@@ -225,7 +225,11 @@ class Trainer:
             # In this setting, we compute the pose to each source frame via a
             # separate forward pass through the pose network.
 
-            pose_feats = {f_i: inputs["color_aug", f_i, 0] for f_i in self.frame_ids}
+            pose_feats = {}
+            for f_i in self.frame_ids:
+              if ("color_aug", f_i, 0) in inputs.keys():
+                pose_feats[f_i] = inputs["color_aug", f_i, 0]
+            # pose_feats = {f_i: inputs["color_aug", f_i, 0] for f_i in self.frame_ids}
 
             for f_i in self.frame_ids[1:]:
                 if f_i != "s":
