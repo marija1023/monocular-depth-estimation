@@ -22,7 +22,8 @@ class Trainer:
     def __init__(self, options):
         
         self.model_name = 'model'
-        self.log_dir = os.path.join(os.path.expanduser("~"), "tmp")
+        # self.log_dir = os.path.join(os.path.expanduser("~"), "tmp")
+        self.log_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/models'
         
         self.log_path = os.path.join(self.log_dir, self.model_name)
 
@@ -64,9 +65,14 @@ class Trainer:
         print("Models and tensorboard events files are saved to:\n  ", self.log_dir)
         print("Training is using:\n  ", self.device)
 
-        self.dataset = datasets.KITTIRAWDataset
+        # TODO data???
+        datasets_dict = {"kitti": datasets.KITTIRAWDataset,
+                         "kitti_odom": datasets.KITTIOdomDataset}
+        self.dataset = datasets_dict["kitti"]
 
-        fpath = os.path.join(os.path.dirname(__file__), "splits", "{}_files.txt")
+        splits_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
+        # fpath = os.path.join(os.path.dirname(__file__), "splits", "{}_files.txt")
+        fpath = os.path.join(splits_dir, '{}_files.txt')
 
         train_filenames = readlines(fpath.format("train"))
         val_filenames = readlines(fpath.format("val"))
@@ -87,7 +93,7 @@ class Trainer:
         self.data_path = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/data/photos'
 
         train_dataset = self.dataset(
-            self.data_path, train_filenames, self.height, self.width,
+            train_filenames, self.height, self.width,
             self.frame_ids, 4, is_train=True, img_ext=img_ext)
         
         self.num_workers = 12 
@@ -96,7 +102,7 @@ class Trainer:
             num_workers=self.num_workers, pin_memory=True, drop_last=True)
         
         val_dataset = self.dataset(
-            self.data_path, val_filenames, self.height, self.width,
+            val_filenames, self.height, self.width,
             self.frame_ids, 4, is_train=False, img_ext=img_ext)
         self.val_loader = DataLoader(
             val_dataset, self.batch_size, True,
@@ -125,7 +131,7 @@ class Trainer:
         self.depth_metric_names = [
             "de/abs_rel", "de/sq_rel", "de/rms", "de/log_rms", "da/a1", "da/a2", "da/a3"]
 
-        print("Using split:\n  ", self.split)
+        # print("Using split:\n  ", self.split)
         print("There are {:d} training items and {:d} validation items\n".format(
             len(train_dataset), len(val_dataset)))
 
