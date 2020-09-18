@@ -20,3 +20,8 @@ Data is splited into train, validation and test sets so the image path is stored
 
 ## Networks
 The network contains three parts: camera pose network, resnet encoder and depth decoder.
+
+## Results
+<p align="center">
+  <img src="assets/mono_depth.png" alt="example input output gif" width="600" />
+</p>
