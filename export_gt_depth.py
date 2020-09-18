@@ -1,6 +1,5 @@
 import os
 
-import argparse
 import numpy as np
 import PIL.Image as pil
 
@@ -20,12 +19,13 @@ def export_gt_depths_kitti():
     gt_depths = []
 
     for line in lines:
-        folder = line[:line.rfind('/')]
+        folder = line[:line.find('/')]
         frame = line[line.rfind('/')+1 : line.rfind('\.')-3]
         frame_id = int(frame)
 
         calib_dir = os.path.join(data_path, "calib")
         velo_filename = os.path.join(data_path, "photos", folder, "velodyne_points/data", "{:010d}.bin".format(frame_id))
+        gt_depth = generate_depth_map(calib_dir, velo_filename, 2, True)
 
         gt_depths.append(gt_depth.astype(np.float32))
 

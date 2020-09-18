@@ -18,8 +18,8 @@ from pose_cnn import *
 cv2.setNumThreads(0)  # This speeds up evaluation 5x on our unix systems (OpenCV 3.3.1)
 
 
-# splits_dir = os.path.join(os.path.dirname(__file__), "splits")
-split_folder = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
+splits_dir = os.path.join(os.path.dirname(__file__), "splits")
+# splits_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
 
 # Models which were trained with stereo supervision were trained with a nominal
 # baseline of 0.1 units. The KITTI rig has a baseline of 54cm. Therefore,
@@ -65,7 +65,7 @@ def evaluate():
     MIN_DEPTH = 1e-3
     MAX_DEPTH = 80
 
-    model_folder = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/models'
+    model_folder = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/models/model/models/weights_14'
     filenames = readlines(os.path.join(splits_dir, "test_files.txt"))
     encoder_path = os.path.join(model_folder, "encoder.pth")
     decoder_path = os.path.join(model_folder, "depth.pth")
@@ -152,8 +152,8 @@ def evaluate():
     #     print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
     #     quit()
 
-    # gt_path = os.path.join(splits_dir, opt.eval_split, "gt_depths.npz")
-    # gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1')["data"]
+    gt_path = os.path.join(splits_dir, "gt_depths.npz")
+    gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1')["data"]
 
     print("-> Evaluating")
 
@@ -182,7 +182,7 @@ def evaluate():
         pred_depth = pred_depth[mask]
         gt_depth = gt_depth[mask]
 
-        pred_depth *= opt.pred_depth_scale_factor
+        # pred_depth *= opt.pred_depth_scale_factor
         # if not opt.disable_median_scaling:
         #     ratio = np.median(gt_depth) / np.median(pred_depth)
         #     ratios.append(ratio)
