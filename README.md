@@ -2,12 +2,13 @@
 
 Faculty project on the Machine learning course at Faculty of Mathematics.
 
-This is the reference PyTorch implementation for training and testing depth estimation models using the method described in
+This is our adapted PyTorch implementation for training and testing depth estimation models using the method described in
 
 > [**Digging into Self-Supervised Monocular Depth Prediction**](https://arxiv.org/abs/1806.01260)
 but using only mono camera.
 
 ## ⏳ Training
+Using 314 photos, training lasted ~1.5h on Google Colab.
 ```shell
 python3 train.py
 ```
