@@ -19,12 +19,6 @@ cv2.setNumThreads(0)  # This speeds up evaluation 5x on our unix systems (OpenCV
 
 
 splits_dir = os.path.join(os.path.dirname(__file__), "splits")
-# splits_dir = '/content/drive/My Drive/ML/Projekat/monocular-depth-estimation/splits'
-
-# Models which were trained with stereo supervision were trained with a nominal
-# baseline of 0.1 units. The KITTI rig has a baseline of 54cm. Therefore,
-# to convert our stereo predictions to real-world scale we multiply our depths by 5.4.
-STEREO_SCALE_FACTOR = 5.4
 
 
 def compute_errors(gt, pred):
@@ -98,12 +92,7 @@ def evaluate():
 
     with torch.no_grad():
         for data in dataloader:
-          # ???
             input_color = data[("color", 0, 0)].cuda()
-
-            # if opt.post_process:
-            #     # Post-processed results require each image to have two forward passes
-            #     input_color = torch.cat((input_color, torch.flip(input_color, [3])), 0)
 
             output = depth_decoder(encoder(input_color))
 
@@ -114,56 +103,11 @@ def evaluate():
 
     pred_disps = np.concatenate(pred_disps)
 
-    # else:
-    #     # Load predictions from file
-    #     print("-> Loading predictions from {}".format(opt.ext_disp_to_eval))
-    #     pred_disps = np.load(opt.ext_disp_to_eval)
-
-    #     if opt.eval_eigen_to_benchmark:
-    #         eigen_to_benchmark_ids = np.load(
-    #             os.path.join(splits_dir, "benchmark", "eigen_to_benchmark_ids.npy"))
-
-    #         pred_disps = pred_disps[eigen_to_benchmark_ids]
-
-    # if opt.save_pred_disps:
-    #     output_path = os.path.join(
-    #         opt.load_weights_folder, "disps_{}_split.npy".format(opt.eval_split))
-    #     print("-> Saving predicted disparities to ", output_path)
-    #     np.save(output_path, pred_disps)
-
-    # if opt.no_eval:
-    #     print("-> Evaluation disabled. Done.")
-    #     quit()
-
-    # elif opt.eval_split == 'benchmark':
-    #     save_dir = os.path.join(opt.load_weights_folder, "benchmark_predictions")
-    #     print("-> Saving out benchmark predictions to {}".format(save_dir))
-    #     if not os.path.exists(save_dir):
-    #         os.makedirs(save_dir)
-
-    #     for idx in range(len(pred_disps)):
-    #         disp_resized = cv2.resize(pred_disps[idx], (1216, 352))
-    #         depth = STEREO_SCALE_FACTOR / disp_resized
-    #         depth = np.clip(depth, 0, 80)
-    #         depth = np.uint16(depth * 256)
-    #         save_path = os.path.join(save_dir, "{:010d}.png".format(idx))
-    #         cv2.imwrite(save_path, depth)
-
-    #     print("-> No ground truth is available for the KITTI benchmark, so not evaluating. Done.")
-    #     quit()
 
     gt_path = os.path.join(splits_dir, "gt_depths.npz")
     gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1')["data"]
 
     print("-> Evaluating")
-
-    # if opt.eval_stereo:
-    #     print("   Stereo evaluation - "
-    #           "disabling median scaling, scaling by {}".format(STEREO_SCALE_FACTOR))
-    #     disable_median_scaling = True
-    #     opt.pred_depth_scale_factor = STEREO_SCALE_FACTOR
-    # else:
-    #     print("   Mono evaluation - using median scaling")
 
     errors = []
     ratios = []
@@ -182,21 +126,10 @@ def evaluate():
         pred_depth = pred_depth[mask]
         gt_depth = gt_depth[mask]
 
-        # pred_depth *= opt.pred_depth_scale_factor
-        # if not opt.disable_median_scaling:
-        #     ratio = np.median(gt_depth) / np.median(pred_depth)
-        #     ratios.append(ratio)
-        #     pred_depth *= ratio
-
         pred_depth[pred_depth < MIN_DEPTH] = MIN_DEPTH
         pred_depth[pred_depth > MAX_DEPTH] = MAX_DEPTH
 
         errors.append(compute_errors(gt_depth, pred_depth))
-
-    # if not opt.disable_median_scaling:
-    #     ratios = np.array(ratios)
-    #     med = np.median(ratios)
-    #     print(" Scaling ratios | med: {:0.3f} | std: {:0.3f}".format(med, np.std(ratios / med)))
 
     mean_errors = np.array(errors).mean(0)
 

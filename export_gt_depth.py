@@ -25,7 +25,7 @@ def export_gt_depths_kitti():
 
         calib_dir = os.path.join(data_path, "calib")
         velo_filename = os.path.join(data_path, "photos", folder, "velodyne_points/data", "{:010d}.bin".format(frame_id))
-        gt_depth = generate_depth_map(calib_dir, velo_filename, 2, True)
+        gt_depth = generate_depth_map(calib_dir, velo_filename, 1, True)
 
         gt_depths.append(gt_depth.astype(np.float32))
 

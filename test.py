@@ -96,7 +96,7 @@ def test():
 
             # Saving numpy file
             output_name = os.path.splitext(os.path.basename(image_path))[0]
-            name_dest_npy = os.path.join(output_directory, "{}_disp.npy".format(output_name))
+            name_dest_npy = os.path.join(output_directory, "{}_mono_disp.npy".format(output_name))
             scaled_disp, _ = disp_to_depth(disp, 0.1, 100)
             np.save(name_dest_npy, scaled_disp.cpu().numpy())
 
@@ -108,7 +108,7 @@ def test():
             colormapped_im = (mapper.to_rgba(disp_resized_np)[:, :, :3] * 255).astype(np.uint8)
             im = pil.fromarray(colormapped_im)
 
-            name_dest_im = os.path.join(output_directory, "{}_disp.jpeg".format(output_name))
+            name_dest_im = os.path.join(output_directory, "{}_mono_disp.jpeg".format(output_name))
             im.save(name_dest_im)
 
             print("   Processed {:d} of {:d} images - saved prediction to {}".format(
